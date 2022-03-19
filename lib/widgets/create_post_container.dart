@@ -35,7 +35,7 @@ class CreatePostContainer extends StatelessWidget {
             ],
           ),
           const Divider(height: 10, thickness: 0.5),
-          Container(
+          SizedBox(
             height: 40,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
