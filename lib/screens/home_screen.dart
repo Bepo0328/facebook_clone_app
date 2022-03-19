@@ -1,6 +1,8 @@
 import 'package:facebook_clone_app/config/palette.dart';
+import 'package:facebook_clone_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -24,6 +26,18 @@ class HomeScreen extends StatelessWidget {
             ),
             centerTitle: false,
             floating: true,
+            actions: [
+              CircleButton(
+                icon: Icons.search,
+                iconSize: 30,
+                onPressed: () => debugPrint('Search'),
+              ),
+              CircleButton(
+                icon: MdiIcons.facebookMessenger,
+                iconSize: 30,
+                onPressed: () => debugPrint('Messenger'),
+              ),
+            ],
           ),
         ],
       ),
