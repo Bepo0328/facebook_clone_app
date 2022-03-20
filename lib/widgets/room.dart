@@ -33,7 +33,7 @@ class Rooms extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: ProfileAvatar(
-              imageUrl: user.imageUrl!,
+              imageUrl: user.imageUrl,
               isActive: true,
             ),
           );

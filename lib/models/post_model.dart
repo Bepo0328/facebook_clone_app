@@ -1,13 +1,13 @@
 import 'package:facebook_clone_app/models/models.dart';
 
 class Post {
-  final User? user;
-  final String? caption;
-  final String? timeAgo;
-  final String? imageUrl;
-  final int? likes;
-  final int? comments;
-  final int? shares;
+  final User user;
+  final String caption;
+  final String timeAgo;
+  final String imageUrl;
+  final int likes;
+  final int comments;
+  final int shares;
 
   const Post({
     required this.user,
