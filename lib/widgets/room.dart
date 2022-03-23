@@ -1,4 +1,3 @@
-import 'package:facebook_clone_app/config/palette.dart';
 import 'package:facebook_clone_app/models/models.dart';
 import 'package:facebook_clone_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -60,23 +59,14 @@ class _CreateRoomButton extends StatelessWidget {
         ),
       ),
       child: Row(
-        children: [
-          // ShaderMask(
-          //   shaderCallback: (rect) =>
-          //       Palette.createRoomGradient.createShader(rect),
-          //   child: const Icon(
-          //     Icons.video_call,
-          //     size: 35,
-          //     color: Colors.white,
-          //   ),
-          // ),
-          const Icon(
+        children: const [
+          Icon(
             Icons.video_call,
             size: 35,
             color: Colors.purple,
           ),
-          const SizedBox(width: 4),
-          const Text('Create\nRoom'),
+          SizedBox(width: 4),
+          Text('Create\nRoom'),
         ],
       ),
     );
