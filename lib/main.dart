@@ -2,6 +2,7 @@ import 'package:facebook_clone_app/config/palette.dart';
 import 'package:facebook_clone_app/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/gestures.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       ),
     );
     return MaterialApp(
+      scrollBehavior: _MyCustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
       title: 'Facebook Clone App',
       theme: ThemeData(
@@ -28,4 +30,12 @@ class MyApp extends StatelessWidget {
       home: const NavScreen(),
     );
   }
+}
+
+class _MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }

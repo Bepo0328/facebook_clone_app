@@ -14,37 +14,49 @@ class PostContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5),
-      padding: const EdgeInsets.symmetric(vertical: 8),
+    final bool isDesktop = Responsive.isDesktop(context);
+    return Card(
+      margin: EdgeInsets.symmetric(
+        vertical: 5,
+        horizontal: isDesktop ? 5 : 0,
+      ),
+      elevation: isDesktop ? 1 : 0,
+      shape: isDesktop
+          ? RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            )
+          : null,
       color: Colors.white,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                _PostHeader(post: post),
-                const SizedBox(height: 4),
-                Text(post.caption),
-                post.imageUrl != ''
-                    ? const SizedBox.shrink()
-                    : const SizedBox(height: 6),
-              ],
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _PostHeader(post: post),
+                  const SizedBox(height: 4),
+                  Text(post.caption),
+                  post.imageUrl != ''
+                      ? const SizedBox.shrink()
+                      : const SizedBox(height: 6),
+                ],
+              ),
             ),
-          ),
-          post.imageUrl != ''
-              ? Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: CachedNetworkImage(imageUrl: post.imageUrl),
-                )
-              : const SizedBox.shrink(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: _PostStats(post: post),
-          ),
-        ],
+            post.imageUrl != ''
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: CachedNetworkImage(imageUrl: post.imageUrl),
+                  )
+                : const SizedBox.shrink(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: _PostStats(post: post),
+            ),
+          ],
+        ),
       ),
     );
   }

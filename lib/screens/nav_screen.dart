@@ -47,10 +47,13 @@ class _NavScreenState extends State<NavScreen> {
                 preferredSize: Size(screenSize.width, 100),
               )
             : null,
-        body: IndexedStack(
-          index: _selectedIndex,
+        body: TabBarView(
           children: _screens,
         ),
+        // body: IndexedStack(
+        //   index: _selectedIndex,
+        //   children: _screens,
+        // ),
         bottomNavigationBar: !Responsive.isDesktop(context)
             ? Padding(
                 padding: const EdgeInsets.only(bottom: 12),
